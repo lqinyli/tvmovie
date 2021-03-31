@@ -15,9 +15,9 @@ public class PlayerConfig {
     public final boolean mIsEnableLog;
     public final boolean mEnableAudioFocus;
     public final ProgressManager mProgressManager;
-    public final PlayerFactory mPlayerFactory;
-    public final boolean isEnableMediaCodec;
-    public final int mScreenScaleType;
+    public PlayerFactory mPlayerFactory;
+    public boolean isEnableMediaCodec;
+    public int mScreenScaleType;
     public final RenderViewFactory mRenderViewFactory;
 
     private PlayerConfig(Builder builder) {

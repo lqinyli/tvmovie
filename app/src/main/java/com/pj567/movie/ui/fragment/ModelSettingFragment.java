@@ -114,9 +114,9 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     public void onChange() {
                         int playType = Hawk.get(HawkConfig.PLAY_TYPE, 0);
                         PlayerConfig config = VideoViewManager.getConfig();
-                        try {
-                            Field mPlayerFactoryField = config.getClass().getDeclaredField("mPlayerFactory");
-                            mPlayerFactoryField.setAccessible(true);
+//                        try {
+//                            Field mPlayerFactoryField = config.getClass().getDeclaredField("mPlayerFactory");
+//                            mPlayerFactoryField.setAccessible(true);
                             PlayerFactory playerFactory = null;
                             switch (playType) {
                                 case 0:
@@ -133,10 +133,11 @@ public class ModelSettingFragment extends BaseLazyFragment {
                                     playerFactory = ExoMediaPlayerFactory.create();
                                     break;
                             }
-                            mPlayerFactoryField.set(config, playerFactory);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                        config.mPlayerFactory = playerFactory;
+//                            mPlayerFactoryField.set(config, playerFactory);
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
                     }
                 }).build(mContext).show();
             }
